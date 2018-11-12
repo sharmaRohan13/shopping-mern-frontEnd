@@ -9,14 +9,16 @@ export default function(state = initalState, action) {
     switch(action.type) {
         case GET_ITEMS:
             return {
-                ...state
+                ...state,
+                items: action.payload,
+                loading: false
             }
         
         case DELETE_ITEM:
             return {
                 ...state,
                 items: state.items.filter( item => 
-                    item.id !== action.payload
+                    item._id !== action.payload
                 )
             }
 
